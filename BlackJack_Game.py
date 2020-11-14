@@ -17,14 +17,8 @@ class Card():
         self.suit = suit
         self.rank = rank
         
-
     def __str__(self):
         return self.rank + ' of ' + self.suit
-
-#TESTING
-#test_card = Card(suits[2], ranks[4])  # produces six of spades
-#print(test_card)
-#END TESTING
 
 # deck class
 class Deck():
@@ -47,19 +41,12 @@ class Deck():
         single_card = self.deck.pop()
         return single_card
 
-#TESTING 
-#test_deck = Deck()
-
-#print(len(test_deck.deck)) # result is 52 cards 
-#END TESTING
-
 class Hand(): 
     def __init__(self):
         #empty list to hold the cards delt 
         self.cards = [] 
         self.value = 0 
         self.aces = 0 #count the number of aces
-
 
     def add_card(self,card):
         #card passed in 
@@ -74,18 +61,6 @@ class Hand():
         while self.value > 21 and self.aces:
             self.value -= 10 
             self.aces -= 1 
-
-#TESTING 
-#est_deck = Deck()
-#test_deck.shuffle()
-#test_player = Hand()
-#test_player.add_card(test_deck.deal())
-#test_player.add_card(test_deck.deal())
-#print(f'the value of the cards is {test_player.value}')
-
-#for card in test_player.cards: 
-#    print(card)
-#END TESTING
 
 # chips class 
 class Chips():
@@ -132,7 +107,6 @@ def hit_or_stand(deck,hand):
             continue 
         break
 
-
 #function to display cards 
 def show_some(player,dealer): 
     print("\nDealer's Hand:")
@@ -172,8 +146,6 @@ player_chips = Chips() #default value is 100 chips
 #game logic 
 while True: 
 
-    #print(f"Round: {round_count}")
-
     newdeck = Deck()
     newdeck.shuffle()
 
@@ -184,7 +156,6 @@ while True:
     dealer_hand = Hand()
     dealer_hand.add_card(newdeck.deal())
     dealer_hand.add_card(newdeck.deal())
-
 
     #ask player for bet
     take_bet(player_chips)
