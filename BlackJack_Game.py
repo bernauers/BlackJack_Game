@@ -167,10 +167,12 @@ def dealer_wins(player,dealer,chips):
 def push(player,dealer):
     print("Tie, its a push.")
 
+player_chips = Chips() #default value is 100 chips 
+
 #game logic 
 while True: 
-    round_count = 0 #This is not working 
-    print(f"Round: {round_count}")
+
+    #print(f"Round: {round_count}")
 
     newdeck = Deck()
     newdeck.shuffle()
@@ -183,7 +185,6 @@ while True:
     dealer_hand.add_card(newdeck.deal())
     dealer_hand.add_card(newdeck.deal())
 
-    player_chips = Chips()  #default value is 100 chips
 
     #ask player for bet
     take_bet(player_chips)
@@ -214,6 +215,10 @@ while True:
             player_wins(player_hand,dealer_hand,player_chips)
         else: 
             push(player_hand,dealer_hand)
+    
+    if player_chips.total == 0: 
+        print("\nAll out of chips! Thanks for playing")
+        break
 
     #inform player of thier chips 
     print("\n Players chip total" , player_chips.total)
@@ -222,12 +227,13 @@ while True:
     new_hand = input('Would you like to play another hand? Enter y (yes) or n (no) ')
 
     if new_hand[0].lower() == 'y':
-        playing = True 
+        playing = True
         continue
     else: 
         print('Until next time!')
         break
         
 #NOTES 
-#chips count is reset between hands, round count is being set back to 0 each hand 
+#chips count is reset between hands. Possible to add some logic to new hand to pass the coin value into the next round 
+#possible to pass chips.total in as a variable and not as a constant. 
 
