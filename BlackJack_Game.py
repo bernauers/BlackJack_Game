@@ -232,8 +232,5 @@ while True:
     else: 
         print('Until next time!')
         break
-        
-#NOTES 
-#chips count is reset between hands. Possible to add some logic to new hand to pass the coin value into the next round 
-#possible to pass chips.total in as a variable and not as a constant. 
+ 
 
