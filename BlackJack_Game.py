@@ -9,7 +9,7 @@ values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eig
           'Nine': 9, 'Ten': 10, 'Jack': 10, 'Queen': 10, 'King': 10, 'Ace': 11}
 
 playing = True #variable to control the game
-print('Welcome to BlackJack. The Dealer will hit up to 17. Have fun!')
+print('Welcome to BlackJack. The Dealer will hit up to 17. Have fun!\n')
 # cards class
 class Card():
     def __init__(self, suit, rank):
@@ -78,7 +78,7 @@ class Chips():
 def take_bet(chips):
     while True: 
         try: 
-            chips.bet = int(input('How many chips would you like to bet? '))
+            chips.bet = int(input('How many chips would you like to bet? \nBet:'))
         except ValueError:
             print('Sorry, please enter a number.')
         else: 
@@ -95,7 +95,7 @@ def hit_or_stand(deck,hand):
     global playing
 
     while True: 
-        x = input("Would you like to hit or stay? Enter 'h' or 's' ")
+        x = input("\nWould you like to hit or stay? Enter 'h' or 's' ")
 
         if x[0].lower() == 'h':
             hit(deck,hand)
@@ -103,7 +103,7 @@ def hit_or_stand(deck,hand):
             print("Player stands. Dealer is playing.")
             playing = False 
         else: 
-            print("Sorry, please enter a selction again.")
+            print("Sorry, please enter a selection again.")
             continue 
         break
 
@@ -113,7 +113,7 @@ def show_some(player,dealer):
     print(" <card hidden>")
     print('',dealer.cards[1])  
     print("\nPlayer's Hand:", *player.cards, sep='\n ')
-    print("Player's Hand Value:", player.value) #Test line to print out the numeric value of the hand
+    print("Player's Hand Value:", player.value) #display the numeric value of the players hand
 
 def show_all(player, dealer): 
     print("\nDealer's Hand:", *dealer.cards, sep='\n ')
@@ -171,7 +171,7 @@ while True:
         if player_hand.value > 21: 
             player_busts(player_hand,dealer_hand,player_chips)
             break
-#if player hasn't busted, dealer plays until hand reaches 17 
+    #if player hasn't busted, dealer plays until hand reaches 17 
     if player_hand.value <= 21: 
         while dealer_hand.value < 17:
             hit(newdeck,dealer_hand)
@@ -192,9 +192,9 @@ while True:
         break
 
     #inform player of thier chips 
-    print("\n Players chip total" , player_chips.total)
+    print("\nPlayers chip total" , player_chips.total)
 
-#Ask to play again 
+    #Ask to play again 
     new_hand = input('Would you like to play another hand? Enter y (yes) or n (no) ')
 
     if new_hand[0].lower() == 'y':
