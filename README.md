@@ -12,3 +12,8 @@ This game was designed with the dealer soft 17 rule. More can be found on the ru
 The player starts with a default value of 100 chips.
 
 
+# Improvements
+
+After testing and review, found that it might be more readable to include the outcome functions in their own Class. 
+
+
